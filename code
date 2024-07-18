@@ -1,0 +1,79 @@
+package work;
+import java.util.*;
+public class MathGame1 {
+private final int foruse;
+
+public MathGame1(int a, int b) {
+	foruse = (int)((b-a+1)*Math.random());
+}
+
+	public static void main(String[] args) {
+	//base1();
+		int a = 3;
+		while(a-- >=0) {
+			System.out.println("a");
+		}
+		
+	}
+	public void base() {
+		Scanner input = new Scanner(System.in);
+		
+		int x = (int)(101*Math.random());
+		boolean flag = false;
+		while(flag != true) {
+			System.out.println("a number :");
+			int guess = input.nextInt();
+			if(guess == x) {
+				flag = true;
+				System.out.println("g");
+				
+			} else {
+				if(guess > x && guess - x > 10) {
+					System.out.println(" t big");
+				} else if(guess > x) {
+					System.out.println("big");
+					
+				}
+				else if(guess < x && Math.abs(guess - x) > 10) {
+					System.out.println(" t s");
+					
+				} else {
+					System.out.println("s");
+					
+				}
+			}
+		}
+	}
+	public static void base1() {
+		boolean flag= false;
+		Scanner input = new Scanner(System.in);
+		Scanner fors = new Scanner(System.in);
+		System.out.println("max number :");
+		int max = input.nextInt();
+		System.out.println("min number :");
+		int min = input.nextInt();
+		MathGame1 game = new MathGame1(min, max);
+		while(flag==false) {
+			System.out.println("guess");
+			int guess = input.nextInt();
+		
+		if(guess == game.foruse) {
+			System.out.println("g");
+			flag = true;
+		} else {
+			if(guess > game.foruse && guess - game.foruse >= 10) {
+				System.out.println("t b");
+			} else if(guess > game.foruse) {
+				System.out.println("b");
+			} else if(guess < game.foruse && Math.abs(guess - game.foruse) >= 10) {
+				System.out.println("t s");
+			} else {
+				System.out.println("s");
+			}
+		}
+		}
+		System.out.println("more?\n" +"yes " +"or   "+ "  no");
+		String check1 = fors.nextLine();
+		if(check1.equals("yes")) base1();
+	}
+}
